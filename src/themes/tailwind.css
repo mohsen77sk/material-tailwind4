@@ -1,10 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --default-*: initial;
-  --default-font-family: "IRANSansX", "sans-serif";
+  --default-font-family: 'IRANSansX', 'sans-serif';
 
   --text-*: initial;
 
@@ -31,6 +31,7 @@
   --shadow-level-5: var(--mat-sys-level5);
 }
 
-@import "./tailwind/base.css";
-@import "./tailwind/utility/icon-size.css";
-@import "./tailwind/utility/material-text.css";
+@import './tailwind/base.css';
+@import './tailwind/utility/icon-size.css';
+@import './tailwind/utility/material-text.css';
+@import './tailwind/utility/material-color.css';
