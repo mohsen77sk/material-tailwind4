@@ -1,0 +1,71 @@
+<div class="mx-auto w-full px-6 md:px-8">
+  <div class="py-8">
+    <div class="flex items-center justify-between">
+      <div>
+        <button mat-button [ngClass]="{ 'mat-mdc-unelevated-button': type() === 0 }" (click)="type.set(0)">
+          Normal Scroll
+        </button>
+        <button mat-button [ngClass]="{ 'mat-mdc-unelevated-button': type() === 1 }" (click)="type.set(1)">
+          Page Scroll
+        </button>
+        <button mat-button [ngClass]="{ 'mat-mdc-unelevated-button': type() === 2 }" (click)="type.set(2)">
+          Content Scroll
+        </button>
+      </div>
+      <div>
+        <button mat-button [ngClass]="{ 'mat-mdc-unelevated-button': !isCustom() }" (click)="isCustom.set(false)">
+          Default Scroll
+        </button>
+        <button mat-button [ngClass]="{ 'mat-mdc-unelevated-button': isCustom() }" (click)="isCustom.set(true)">
+          Custom Scroll
+        </button>
+      </div>
+    </div>
+    <div class="rounded-medium ring-outline-variant relative mt-10 h-192 overflow-auto ring-1">
+      <div class="flex min-h-full flex-auto overflow-auto" [mskScrollbar]="type() === 0 && isCustom()">
+        <!-- navigation -->
+        <div class="bg-surface-container sticky top-0 hidden h-192 w-80 shrink-0 border-e md:block">
+          <div class="h-4"></div>
+          <div class="rounded-medium bg-surface-container-highest m-6 h-4 w-2/3"></div>
+          <div class="rounded-medium bg-surface-container-highest m-6 h-4 w-3/4"></div>
+          <div class="rounded-medium bg-surface-container-highest m-6 h-4 w-2/3"></div>
+          <div class="rounded-medium bg-surface-container-highest m-6 h-4 w-1/2"></div>
+          <div class="rounded-medium bg-surface-container-highest m-6 h-4 w-2/3"></div>
+        </div>
+        <!-- wrapper -->
+        <div class="flex flex-auto flex-col">
+          <!-- header -->
+          <div class="bg-surface-container relative flex h-16 items-center justify-end border-b px-6 sm:px-10">
+            <div class="bg-surface-container-highest h-6 w-6 rounded-full"></div>
+          </div>
+          <!-- content -->
+          <div class="relative flex flex-auto flex-col">
+            <!-- page -->
+            <section class="relative flex flex-[1_1_auto] flex-col">
+              <div class="absolute inset-0 flex min-w-0 flex-auto flex-col">
+                <div
+                  class="flex min-w-0 flex-auto flex-col"
+                  [ngClass]="{ 'overflow-y-auto': type() !== 0 }"
+                  [mskScrollbar]="type() === 1 && isCustom()"
+                >
+                  <!-- page header -->
+                  <div class="flex flex-0 flex-col border-b p-6 sm:px-10 sm:py-8">
+                    <h2 class="text-headline-medium truncate">Page heading</h2>
+                  </div>
+                  <!-- page content -->
+                  <div
+                    class="flex-auto p-6 sm:p-10"
+                    [ngClass]="{ 'overflow-y-auto': type() === 2 }"
+                    [mskScrollbar]="type() === 2 && isCustom()"
+                  >
+                    <div class="rounded-large h-400 max-h-400 min-h-400 border-2 border-dashed"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

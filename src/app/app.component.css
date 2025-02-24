@@ -2,14 +2,16 @@ app-root {
   display: flex;
   flex: 1 1 auto;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  min-width: 0;
 
-  main {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  /* Base styles for components that load as a route */
+  router-outlet {
+    + * {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+      width: 100%;
+    }
   }
 }

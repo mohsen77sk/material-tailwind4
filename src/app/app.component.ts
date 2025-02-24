@@ -8,6 +8,4 @@ import { RouterOutlet } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   imports: [RouterOutlet],
 })
-export class AppComponent {
-  title = 'material-tailwind4';
-}
+export class AppComponent {}

@@ -1,6 +1,9 @@
-<main class="p-4">
-  <div class="text-headline-medium">
-    {{ title }}
+<!-- Wrapper -->
+<div class="flex w-full min-w-0 flex-auto flex-col">
+  <!-- Header -->
+  <div class="relative z-49 flex h-16 w-full flex-0 items-center justify-between px-4 md:px-6"></div>
+  <!-- Main -->
+  <div class="flex w-full flex-auto flex-col">
+    <router-outlet></router-outlet>
   </div>
-  <router-outlet />
-</main>
+</div>
